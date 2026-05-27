@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VRC — Victor Rabelo · Analista de Dados & Designer</title>
+<meta name="description" content="Victor Rabelo de Campos — Analista de Dados com DNA de Designer. Pipeline ETL, BI, Machine Learning e visualização de dados orientada à decisão."/>
+<meta name="keywords" content="analista de dados, power bi, python, sql, data science, designer gráfico, brasília"/>
+<meta property="og:title" content="VRC — Victor Rabelo de Campos"/>
+<meta property="og:description" content="Analista de Dados com DNA de Designer. Pipeline ETL, BI, Machine Learning."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+/* ══════════════════════════════════════
+   VRC PORTFOLIO v2 — DESIGN SYSTEM
+   Mantido fiel ao rebranding original
+══════════════════════════════════════ */
+
+/* ══ DARK THEME ══ */
+[data-theme="dark"] {
+  --black:          #111615;
+  --surface:        #181E1F;
+  --surface-2:      #1F2728;
+  --border:         #2C3436;
+  --border-glow:    rgba(92,180,72,0.4);
+
+  --green-base:     #072606;
+  --green-mid:      #0F4A0D;
+  --green-neon:     #5CB448;
+  --green-pale:     #C8E8C0;
+  --green-dim:      rgba(7,38,6,0.22);
+  --green-glow:     rgba(92,180,72,0.45);
+
+  --brown-base:     #2B1A07;
+  --brown-mid:      #4E3200;
+  --brown-neon:     #B08A33;
+  --brown-dim:      rgba(43,26,7,0.22);
+  --brown-glow:     rgba(176,138,51,0.42);
+
+  --green:          var(--green-mid);
+  --green-light:    var(--green-neon);
+  --green-dark:     var(--green-base);
+  --gold:           var(--brown-mid);
+  --gold-light:     var(--brown-neon);
+  --gold-dim:       var(--brown-dim);
+  --gold-glow:      var(--brown-glow);
+
+  --primary:        #FFFFFF;
+  --primary-light:  #FFFFFF;
+  --primary-dim:    rgba(255,255,255,0.07);
+  --text:           #F2F2F2;
+  --text-2:         #D4D4D8;
+  --text-3:         #8A8A9A;
+  --text-4:         #565666;
+  --font-display:   'Sora', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+}
+
+/* ══ LIGHT THEME ══ */
+[data-theme="light"] {
+  --black:          #F0EDE8;
+  --surface:        #E8E4DE;
+  --surface-2:      #DDD8D0;
+  --border:         #C8C2B8;
+  --border-glow:    rgba(30,113,17,0.35);
+
+  --green-base:     #072606;
+  --green-mid:      #0F4A0D;
+  --green-neon:     #2A7A1A;
+  --green-pale:     #D6D255;
+  --green-dim:      rgba(15,74,13,0.1);
+  --green-glow:     rgba(42,122,26,0.3);
+
+  --brown-base:     #2B1A07;
+  --brown-mid:      #4E3200;
+  --brown-neon:     #7A5510;
+  --brown-dim:      rgba(78,50,0,0.1);
+  --brown-glow:     rgba(122,85,16,0.3);
+
+  --green:          var(--green-mid);
+  --green-light:    var(--green-neon);
+  --green-dark:     var(--green-base);
+  --gold:           var(--brown-mid);
+  --gold-light:     var(--brown-neon);
+  --gold-dim:       var(--brown-dim);
+  --gold-glow:      var(--brown-glow);
+
+  --primary:        #0F4A0D;
+  --primary-light:  #2A7A1A;
+  --primary-dim:    rgba(15,74,13,0.08);
+  --text:           #1A1A1A;
+  --text-2:         #2E2E2E;
+  --text-3:         #5A5A5A;
+  --text-4:         #888888;
+  --font-display:   'Sora', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+}
+
+/* ══ RESET & BASE ══ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+/* Scanline sutil */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 3px,
+    rgba(0,0,0,0.04) 3px,
+    rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ══ CURSOR ══ */
+*, a, button { cursor: none; }
+#cursor {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--green-neon);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 0 8px var(--green-neon), 0 0 16px rgba(92,180,72,0.6);
+  transition: transform 0.15s, opacity 0.2s;
+  transform: translate(-50%, -50%);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+#cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1px solid var(--green-neon);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s cubic-bezier(0.2,0,0,1), width 0.3s, height 0.3s, opacity 0.3s;
+}
+.cursor-hover #cursor { transform: translate(-50%,-50%) scale(0); }
+.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--green-neon); box-shadow: 0 0 12px rgba(92,180,72,0.5); }
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--green-neon), 0 0 16px rgba(92,180,72,0.6); }
+  50%       { box-shadow: 0 0 14px var(--green-neon), 0 0 28px rgba(92,180,72,0.8); }
+}
+
+/* ══ THEME PICKER ══ */
+#theme-picker {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  background: #0D1210;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#theme-picker.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.picker-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #5CB448;
+  text-shadow: 0 0 10px rgba(92,180,72,0.5);
+  text-align: center;
+}
+.picker-logo {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 10vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #F2F2F2;
+  text-align: center;
+  line-height: 1;
+  margin-bottom: -12px;
+}
+.picker-logo .r { color: #5CB448; text-shadow: 0 0 18px rgba(92,180,72,0.6); }
+.picker-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 24px;
+}
+.picker-card {
+  position: relative;
+  width: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: none;
+  border: 1px solid transparent;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.picker-card:hover { transform: translateY(-6px); }
+.picker-card.dark-card { background: #111615; border-color: #2C3436; }
+.picker-card.dark-card:hover { border-color: #5CB448; box-shadow: 0 0 28px rgba(92,180,72,0.35), 0 16px 32px rgba(0,0,0,0.5); }
+.picker-card.light-card { background: #F0EDE8; border-color: #C8C2B8; }
+.picker-card.light-card:hover { border-color: #0F4A0D; box-shadow: 0 0 24px rgba(15,74,13,0.3), 0 16px 32px rgba(0,0,0,0.2); }
+
+.picker-preview {
+  height: 120px; padding: 16px;
+  display: flex; flex-direction: column; gap: 8px;
+  position: relative; overflow: hidden;
+}
+.dark-card .prev-bar { height: 6px; width: 100%; border-radius: 3px; background: #2C3436; }
+.dark-card .prev-bar.accent { background: #5CB448; width: 60%; box-shadow: 0 0 6px rgba(92,180,72,0.5); }
+.dark-card .prev-row { display: flex; gap: 6px; }
+.dark-card .prev-block { height: 28px; border-radius: 4px; flex: 1; background: #181E1F; border: 1px solid #2C3436; }
+.dark-card .prev-block.green { background: #0F4A0D; border-color: #5CB448; }
+.dark-card .prev-dot { width: 6px; height: 6px; border-radius: 50%; background: #5CB448; position: absolute; top: 14px; right: 14px; box-shadow: 0 0 8px rgba(92,180,72,0.7); animation: blink 1.5s ease infinite; }
+.light-card .prev-bar { height: 6px; width: 100%; border-radius: 3px; background: #C8C2B8; }
+.light-card .prev-bar.accent { background: #0F4A0D; width: 60%; }
+.light-card .prev-row { display: flex; gap: 6px; }
+.light-card .prev-block { height: 28px; border-radius: 4px; flex: 1; background: #E8E4DE; border: 1px solid #C8C2B8; }
+.light-card .prev-block.green { background: #0F4A0D; border-color: #2A7A1A; }
+.light-card .prev-dot { width: 6px; height: 6px; border-radius: 50%; background: #0F4A0D; position: absolute; top: 14px; right: 14px; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.picker-card-label {
+  padding: 14px 16px 16px;
+  border-top: 1px solid transparent;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.dark-card .picker-card-label { border-top-color: #2C3436; background: #0D1512; }
+.light-card .picker-card-label { border-top-color: #C8C2B8; background: #DDD8D0; }
+.pcl-title { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.88rem; }
+.dark-card .pcl-title { color: #F2F2F2; }
+.light-card .pcl-title { color: #1A1A1A; }
+.pcl-sub { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.dark-card .pcl-sub { color: #5CB448; }
+.light-card .pcl-sub { color: #0F4A0D; }
+.pcl-arrow { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: transform 0.2s; }
+.dark-card .pcl-arrow { background: rgba(92,180,72,0.15); color: #5CB448; }
+.light-card .pcl-arrow { background: rgba(15,74,13,0.12); color: #0F4A0D; }
+.picker-card:hover .pcl-arrow { transform: translateX(4px); }
+.picker-hint { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: #3A4A3A; text-align: center; }
+
+/* ══ THEME TOGGLE ══ */
+#theme-toggle {
+  position: fixed;
+  top: 50%; right: 0;
+  transform: translateY(-50%);
+  z-index: 500;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  padding: 12px 10px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  cursor: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  opacity: 0;
+}
+#theme-toggle.visible { opacity: 1; }
+#theme-toggle:hover { transform: translateY(-50%) translateX(-4px); border-color: var(--green-neon); }
+.toggle-icon { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+.toggle-icon svg { width: 18px; height: 18px; color: var(--green-neon); }
+.toggle-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); writing-mode: vertical-lr; transform: rotate(180deg); }
+[data-theme="light"] #theme-toggle .toggle-icon svg { color: var(--green-mid); }
+
+/* ══ INTRO ══ */
+#intro {
+  position: fixed; inset: 0;
+  background: var(--black);
+  z-index: 8000;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+#intro.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.intro-inner { text-align: center; }
+.intro-logo {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  overflow: hidden;
+}
+.intro-logo span {
+  display: inline-block;
+  animation: introChar 0.8s cubic-bezier(0.16,1,0.3,1) both;
+}
+.intro-logo span:nth-child(2) { animation-delay: 0.08s; color: var(--green-neon); text-shadow: 0 0 20px var(--green-neon), 0 0 40px rgba(92,180,72,0.5); }
+.intro-logo span:nth-child(3) { animation-delay: 0.16s; }
+.intro-bar {
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--green-base), var(--green-neon), var(--brown-neon));
+  margin: 20px auto 0;
+  animation: introBar 1s ease 0.5s forwards;
+  border-radius: 2px;
+}
+@keyframes introChar { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes introBar { to { width: 80px; } }
+
+/* ══ HEADER ══ */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(17,22,21,0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(92,180,72,0.2);
+  opacity: 0;
+  animation: fadeDown 0.6s ease 1.8s forwards;
+}
+[data-theme="light"] header { background: rgba(240,237,232,0.92); border-bottom-color: rgba(15,74,13,0.18); }
+@keyframes fadeDown { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
+
+.logo-wordmark {
+  font-family: var(--font-mono);
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text); text-decoration: none;
+}
+.logo-wordmark .dot { color: var(--brown-neon); text-shadow: 0 0 8px var(--brown-neon); }
+
+nav { display: flex; gap: 4px; align-items: center; }
+nav a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-3); text-decoration: none;
+  padding: 7px 14px; border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+nav a:hover { color: var(--text); background: var(--surface); }
+.nav-cta {
+  background: var(--green-mid) !important;
+  color: #E8F5E0 !important; font-weight: 600;
+  border: 1px solid var(--green-neon) !important;
+  box-shadow: 0 0 10px rgba(92,180,72,0.3) !important;
+  margin-left: 8px;
+}
+.nav-cta:hover { background: var(--green-dark) !important; box-shadow: 0 0 18px rgba(92,180,72,0.55) !important; }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text-2); border-radius: 2px; transition: 0.3s; }
+
+/* ══ MOBILE NAV ══ */
+.mobile-nav {
+  display: none; position: fixed; inset: 0;
+  background: var(--black); z-index: 200;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 28px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--text-2); text-decoration: none;
+  letter-spacing: -0.03em; transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--green-neon); text-shadow: 0 0 14px rgba(92,180,72,0.6); }
+.mobile-close {
+  position: absolute; top: 24px; right: 32px;
+  background: none; border: none;
+  color: var(--text-3); font-size: 1.5rem;
+}
+
+/* ══ MAIN ══ */
+main { opacity: 0; animation: mainReveal 0.8s ease 1.9s forwards; }
+@keyframes mainReveal { to { opacity: 1; } }
+
+/* ══ CONTAINERS & SECTIONS ══ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+section { padding: 100px 0; border-top: 1px solid var(--border); }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--green-neon); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+  text-shadow: 0 0 10px rgba(92,180,72,0.55);
+}
+.section-label::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--green-neon); box-shadow: 0 0 6px var(--green-neon);
+}
+h2.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; letter-spacing: -0.035em;
+  line-height: 1.1; margin-bottom: 16px;
+}
+h2.section-title::after {
+  content: ''; display: block;
+  width: 40px; height: 2px;
+  background: var(--green-neon); margin-top: 14px;
+  box-shadow: 0 0 8px var(--green-neon); border-radius: 2px;
+}
+.section-desc { color: var(--text-3); font-size: 1rem; max-width: 520px; line-height: 1.7; }
+.sec-head { margin-bottom: 0; }
+
+/* ══ BUTTONS ══ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 8px;
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; border: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.btn-primary {
+  background: var(--green-mid); color: #D4EFCC;
+  border: 1px solid var(--green-neon);
+  box-shadow: 0 0 12px rgba(92,180,72,0.25), inset 0 0 8px rgba(92,180,72,0.06);
+}
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 0 22px rgba(92,180,72,0.55), 0 8px 24px rgba(12,77,10,0.4); }
+.btn-ghost {
+  background: transparent; color: var(--text-2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { border-color: var(--green-neon); color: var(--text); transform: translateY(-2px); box-shadow: 0 0 12px rgba(92,180,72,0.3); }
+.btn-gold {
+  background: var(--brown-mid); color: #F5E6C0;
+  border: 1px solid var(--brown-neon);
+  box-shadow: 0 0 10px rgba(176,138,51,0.25);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(176,138,51,0.45); }
+
+/* ══ REVEAL ══ */
+.reveal { opacity:0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity:1; transform: translateY(0); }
+
+/* ══ HERO ══ */
+.hero {
+  min-height: 100vh;
+  display: grid; place-items: center; text-align: center;
+  padding: 140px 24px 80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(7,38,6,0.25) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%,-60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--green-neon); margin-bottom: 24px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  text-shadow: 0 0 12px rgba(92,180,72,0.6);
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block; width: 32px; height: 1px;
+  background: var(--green-neon); opacity: 0.8; box-shadow: 0 0 6px var(--green-neon);
+}
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 7rem); font-weight: 800;
+  letter-spacing: -0.045em; line-height: 0.92;
+  margin-bottom: 32px; max-width: 900px;
+}
+.hero h1 .line { display: block; overflow: hidden; }
+.hero h1 .line span { display: inline-block; animation: lineRise 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+.hero h1 .line:nth-child(1) span { animation-delay: 0.05s; }
+.hero h1 .line:nth-child(2) span { animation-delay: 0.15s; }
+.hero h1 .line:nth-child(3) span { animation-delay: 0.25s; }
+.hero h1 .accent { color: var(--brown-neon); text-shadow: 0 0 16px rgba(176,138,51,0.6), 0 0 32px rgba(176,138,51,0.25); }
+@keyframes lineRise { from { transform: translateY(110%); } to { transform: translateY(0); } }
+.hero-sub {
+  font-size: clamp(0.9rem, 2vw, 1.1rem); color: var(--text-3);
+  max-width: 540px; margin: 0 auto 48px;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+.hero-actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.65s both;
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+
+.hero-badges {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-top: 28px; animation: fadeUp 0.8s ease 0.8s both;
+}
+.hero-badge {
+  font-family: var(--font-mono); font-size: 0.65rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-3); padding: 5px 12px;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--surface);
+}
+
+.scroll-hint {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 0.7rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-4);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  animation: fadeUp 0.8s ease 1s both;
+}
+.scroll-hint::after {
+  content: ''; display: block; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--green-neon), rgba(92,180,72,0));
+  box-shadow: 0 0 6px var(--green-neon); animation: scrollLine 1.5s ease infinite;
+}
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ══ ABOUT ══ */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 56px;
+}
+.about-statement {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.75; color: var(--text-2); font-weight: 400;
+}
+.about-statement strong { color: var(--text); font-weight: 600; }
+.about-statement .neon { color: var(--green-neon); text-shadow: 0 0 10px rgba(92,180,72,0.5); }
+.about-statement .gold { color: var(--brown-neon); }
+
+.about-meta { display: flex; flex-direction: column; gap: 24px; }
+.about-meta-item {}
+.about-meta-label {
+  font-family: var(--font-mono); font-size: 0.65rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-4); margin-bottom: 6px;
+}
+.about-meta-value { font-size: 0.95rem; color: var(--text-2); line-height: 1.5; }
+.about-meta-value a { color: var(--green-neon); text-decoration: none; }
+.about-meta-value a:hover { text-decoration: underline; }
+
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.about-tag {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green-neon); padding: 5px 12px;
+  border: 1px solid rgba(92,180,72,0.3); border-radius: 4px;
+  background: var(--green-dim);
+}
+
+/* ══ EXPERTISE GRID ══ */
+.expertise-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 56px;
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+}
+.expertise-card {
+  padding: 36px 32px; background: var(--surface);
+  transition: background 0.2s; position: relative;
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.expertise-grid .expertise-card:nth-child(3n) { border-right: none; }
+.expertise-card:hover { background: var(--surface-2); }
+.expertise-card::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0);
+  transition: box-shadow 0.3s;
+}
+.expertise-card:hover::after { box-shadow: inset 0 0 0 1px var(--green-neon), 0 0 20px rgba(92,180,72,0.12); }
+.exp-icon {
+  width: 40px; height: 40px; margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--green-dim); border-radius: 10px; font-size: 0;
+}
+.exp-icon svg { display: block; width: 100%; height: 100%; color: var(--green-neon); }
+.exp-num { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.15em; color: var(--text-4); display: block; margin-bottom: 12px; }
+.exp-title { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; }
+.exp-desc { font-size: 0.88rem; color: var(--text-3); line-height: 1.65; margin-bottom: 20px; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.exp-tag {
+  font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green-neon); padding: 3px 9px;
+  border: 1px solid rgba(92,180,72,0.25); border-radius: 3px;
+  background: var(--green-dim);
+}
+
+/* ══ STACK ══ */
+.stack-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; margin-top: 56px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.stack-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 22px 20px; background: var(--surface);
+  transition: background 0.2s; position: relative; overflow: hidden;
+}
+.stack-item:hover { background: var(--surface-2); }
+.stack-item::before {
+  content: ''; position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(92,180,72,0.04), transparent);
+  transition: left 0.5s ease;
+}
+.stack-item:hover::before { left: 150%; }
+.stack-ico { width: 36px; height: 36px; border-radius: 8px; background: var(--green-dim); border: 1px solid rgba(92,180,72,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0; }
+.stack-ico svg { display: block; width: 18px; height: 18px; color: var(--green-neon); }
+.stack-name { font-size: 0.88rem; font-weight: 600; letter-spacing: -0.01em; }
+.stack-cat { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); margin-top: 2px; }
+.stack-level {
+  margin-left: auto; font-family: var(--font-mono);
+  font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; flex-shrink: 0;
+}
+.level-core { color: var(--green-neon); background: var(--green-dim); border: 1px solid rgba(92,180,72,0.25); }
+.level-solid { color: var(--brown-neon); background: var(--brown-dim); border: 1px solid rgba(176,138,51,0.25); }
+.level-exp { color: var(--text-4); background: var(--primary-dim); border: 1px solid var(--border); }
+
+/* ══ PROJECTS ══ */
+.projects-list { display: flex; flex-direction: column; gap: 2px; margin-top: 56px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.project-card {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+  position: relative; overflow: hidden;
+}
+.project-card:last-child { border-bottom: none; }
+.project-card:hover { background: var(--surface-2); }
+.project-card::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--green-neon);
+  opacity: 0; transition: opacity 0.2s;
+  box-shadow: 0 0 10px var(--green-neon);
+}
+.project-card:hover::before { opacity: 1; }
+
+.project-inner {
+  padding: 36px 40px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 24px; align-items: start;
+}
+.project-number {
+  font-family: var(--font-mono); font-size: 0.65rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-4); margin-bottom: 10px;
+}
+.project-title {
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: -0.025em; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.project-collab {
+  font-family: var(--font-mono); font-size: 0.58rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--brown-neon); padding: 2px 8px;
+  border: 1px solid rgba(176,138,51,0.3); border-radius: 3px;
+  background: var(--brown-dim);
+}
+.project-desc { font-size: 0.9rem; color: var(--text-3); line-height: 1.7; margin-bottom: 20px; max-width: 640px; }
+.project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tag {
+  font-family: var(--font-mono); font-size: 0.6rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-3); padding: 3px 9px;
+  border: 1px solid var(--border); border-radius: 3px;
+  background: var(--surface-2);
+}
+.project-links { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.project-link {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green-neon); text-decoration: none;
+  padding: 8px 14px; border: 1px solid rgba(92,180,72,0.3);
+  border-radius: 6px; background: var(--green-dim);
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.2s; white-space: nowrap;
+}
+.project-link:hover { background: var(--green-mid); border-color: var(--green-neon); box-shadow: 0 0 10px rgba(92,180,72,0.3); }
+.project-link.dead { color: var(--text-4); border-color: var(--border); background: none; cursor: default; }
+.project-link.dead:hover { background: none; box-shadow: none; transform: none; }
+.project-link.case {
+  color: var(--brown-neon);
+  border-color: rgba(176,138,51,0.35);
+  background: var(--brown-dim);
+}
+.project-link.case:hover { background: var(--brown-mid); border-color: var(--brown-neon); box-shadow: 0 0 10px rgba(176,138,51,0.3); color: #F5E6C0; }
+
+/* ══ COMPETÊNCIAS ══ */
+.competencias-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-top: 56px;
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+}
+.comp-block {
+  padding: 36px 32px; background: var(--surface);
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.competencias-grid .comp-block:nth-child(2n) { border-right: none; }
+.comp-block-title {
+  font-family: var(--font-mono); font-size: 0.68rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--brown-neon); margin-bottom: 18px;
+  text-shadow: 0 0 8px rgba(176,138,51,0.4);
+}
+.comp-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.comp-list li {
+  font-size: 0.88rem; color: var(--text-3);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.comp-list li::before {
+  content: '›'; color: var(--green-neon); font-weight: 600;
+  flex-shrink: 0; margin-top: 0px;
+}
+
+/* ══ JOURNEY / TIMELINE ══ */
+.timeline { display: flex; flex-direction: column; gap: 0; margin-top: 56px; }
+.timeline-item {
+  display: grid; grid-template-columns: 100px 1px 1fr;
+  gap: 0 32px;
+}
+.tl-year {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  letter-spacing: 0.12em; color: var(--text-4);
+  padding-top: 4px; text-align: right;
+}
+.tl-line { display: flex; flex-direction: column; align-items: center; padding: 4px 0; }
+.tl-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--green-neon); flex-shrink: 0;
+  box-shadow: 0 0 8px var(--green-neon);
+  position: relative;
+}
+.tl-dot::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%; height: 100%; border-radius: 50%;
+  background: var(--green-neon);
+  animation: ringPulse 2s ease-out infinite;
+}
+@keyframes ringPulse {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
+  100% { transform: translate(-50%,-50%) scale(2.5); opacity: 0; }
+}
+.tl-track {
+  flex: 1; width: 1px; min-height: 40px;
+  background: linear-gradient(to bottom, rgba(92,180,72,0.3), rgba(92,180,72,0.05));
+}
+.timeline-item:last-child .tl-track { background: linear-gradient(to bottom, rgba(92,180,72,0.15), transparent); }
+.tl-content { padding: 0 0 52px 0; }
+.tl-role { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+.tl-org {
+  font-family: var(--font-mono); font-size: 0.7rem;
+  letter-spacing: 0.1em; color: var(--green-neon);
+  margin-bottom: 12px; text-shadow: 0 0 8px rgba(92,180,72,0.4);
+}
+.tl-desc { font-size: 0.88rem; color: var(--text-3); line-height: 1.7; max-width: 560px; }
+
+/* ══ EXPERIENCE ══ */
+.exp-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 56px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.exp-item { padding: 32px 36px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: none; }
+.exp-item-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 14px; flex-wrap: wrap; }
+.exp-item-role { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+.exp-item-period { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); white-space: nowrap; margin-top: 2px; }
+.exp-item-org { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--brown-neon); margin-bottom: 12px; }
+.exp-item-desc { font-size: 0.88rem; color: var(--text-3); line-height: 1.7; }
+.exp-item-desc li { margin-left: 18px; margin-bottom: 4px; }
+
+/* ══ FORMAÇÃO ══ */
+.formacao-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.form-card { padding: 32px 28px; background: var(--surface); border-right: 1px solid var(--border); }
+.formacao-grid .form-card:last-child { border-right: none; }
+.form-card-type { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-4); margin-bottom: 12px; }
+.form-card-title { font-size: 0.95rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.4; }
+.form-card-inst { font-size: 0.82rem; color: var(--text-3); margin-bottom: 6px; }
+.form-card-status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.status-ok { color: var(--green-neon); }
+.status-wip { color: var(--brown-neon); }
+
+/* ══ COMUNICAÇÃO VISUAL ══ */
+.visual-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start; margin-bottom: 56px;
+}
+.visual-statement {
+  font-size: 1rem; line-height: 1.8;
+  color: var(--text-2);
+}
+.visual-statement strong { color: var(--text); font-weight: 600; }
+.visual-statement .neon { color: var(--green-neon); }
+.visual-note {
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brown-neon);
+  border-radius: 8px;
+}
+.visual-note-label {
+  font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--brown-neon); margin-bottom: 8px;
+}
+.visual-note p {
+  font-size: 0.85rem; color: var(--text-3); line-height: 1.7;
+}
+
+.visual-cats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+}
+.visual-cat {
+  padding: 28px 24px; background: var(--surface);
+  border-right: 1px solid var(--border);
+  transition: background 0.2s; position: relative;
+}
+.visual-cats .visual-cat:last-child { border-right: none; }
+.visual-cat:hover { background: var(--surface-2); }
+.visual-cat::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0);
+  transition: box-shadow 0.3s;
+}
+.visual-cat:hover::after { box-shadow: inset 0 0 0 1px var(--brown-neon), 0 0 16px rgba(176,138,51,0.08); }
+
+.vcat-num {
+  font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-4); display: block; margin-bottom: 16px;
+}
+.vcat-icon {
+  width: 38px; height: 38px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--brown-dim);
+  border: 1px solid rgba(176,138,51,0.2);
+  border-radius: 10px; font-size: 0;
+}
+.vcat-icon svg { display: block; width: 18px; height: 18px; color: var(--brown-neon); }
+.vcat-title {
+  font-size: 0.95rem; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 10px;
+}
+.vcat-desc {
+  font-size: 0.82rem; color: var(--text-3); line-height: 1.65;
+  margin-bottom: 14px;
+}
+.vcat-tools {
+  display: flex; flex-wrap: wrap; gap: 5px;
+}
+.vcat-tool {
+  font-family: var(--font-mono); font-size: 0.58rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--brown-neon); padding: 2px 8px;
+  border: 1px solid rgba(176,138,51,0.25); border-radius: 3px;
+  background: var(--brown-dim);
+}
+
+/* ══ LINK CERTIFICADOS (inline na jornada) ══ */
+.certs-link-inline {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.68rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3); text-decoration: none;
+  padding: 7px 14px; margin-top: 14px;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface); transition: all 0.2s;
+  width: fit-content;
+}
+.certs-link-inline:hover {
+  color: var(--brown-neon);
+  border-color: rgba(176,138,51,0.4);
+  background: var(--brown-dim);
+  box-shadow: 0 0 10px rgba(176,138,51,0.2);
+}
+.certs-link-inline svg { display: block; flex-shrink: 0; }
+
+/* ══ CONTACT ══ */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 56px; }
+.contact-info h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; }
+.contact-info p { color: var(--text-3); font-size: 0.95rem; line-height: 1.75; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 10px;
+  text-decoration: none; color: var(--text-2);
+  font-size: 0.9rem; transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--green-neon); color: var(--text); transform: translateX(4px); box-shadow: 0 0 14px rgba(92,180,72,0.3); }
+.contact-link-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--green-dim); border: 1px solid rgba(92,180,72,0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 0; flex-shrink: 0;
+}
+.contact-link-icon svg { display: block; width: 16px; height: 16px; color: var(--green-neon); }
+.contact-link-arrow { margin-left: auto; color: var(--text-4); transition: 0.2s; }
+.contact-link:hover .contact-link-arrow { color: var(--green-neon); transform: translateX(4px); }
+
+/* CONTACT FORM */
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group label { display: block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 8px; }
+.form-group input, .form-group textarea {
+  width: 100%; background: var(--black);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; color: var(--text);
+  font-family: var(--font-display); font-size: 0.95rem;
+  transition: border 0.2s; outline: none; resize: vertical;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--green-neon); box-shadow: 0 0 10px rgba(92,180,72,0.3); }
+.form-group textarea { min-height: 120px; }
+.form-submit {
+  background: var(--green-mid); color: #D4EFCC;
+  border: 1px solid var(--green-neon);
+  box-shadow: 0 0 12px rgba(92,180,72,0.25);
+  border-radius: 8px; padding: 14px 28px;
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 600;
+  transition: all 0.2s; align-self: flex-start;
+}
+.form-submit:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 0 20px rgba(92,180,72,0.5), 0 6px 18px rgba(12,77,10,0.4); }
+
+/* ══ CV DOWNLOAD BANNER ══ */
+.cv-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 36px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap; margin-top: 48px;
+  position: relative; overflow: hidden;
+}
+.cv-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--green-dim) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cv-banner-left {}
+.cv-banner-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-neon); margin-bottom: 8px; text-shadow: 0 0 8px rgba(92,180,72,0.5); }
+.cv-banner-title { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.cv-banner-sub { font-size: 0.85rem; color: var(--text-3); }
+.cv-banner-note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-4); margin-top: 6px; }
+
+/* ══ FOOTER ══ */
+footer { border-top: 1px solid var(--border); padding: 40px 0; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.footer-copy { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-4); letter-spacing: 0.08em; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--green-neon); text-shadow: 0 0 8px rgba(92,180,72,0.5); }
+
+/* ══ NUMBERS ROW ══ */
+.numbers-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.number-cell {
+  padding: 40px 32px; text-align: center;
+  transition: background 0.2s;
+  border-right: 1px solid var(--border);
+}
+.number-cell:last-child { border-right: none; }
+.number-cell:hover { background: var(--surface-2); box-shadow: inset 0 0 0 1px rgba(92,180,72,0.25); }
+.num-val {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600; color: var(--brown-neon);
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 16px rgba(176,138,51,0.55), 0 0 32px rgba(176,138,51,0.2);
+  display: block; line-height: 1; margin-bottom: 12px;
+}
+.number-cell:hover .num-val { text-shadow: 0 0 20px rgba(176,138,51,0.7), 0 0 40px rgba(176,138,51,0.3); }
+.num-val sup { font-size: 0.5em; vertical-align: super; opacity: 0.7; }
+.num-label { font-size: 0.85rem; color: var(--text-3); font-weight: 400; }
+
+/* ══ THEME OVERRIDES ══ */
+[data-theme="dark"] #intro { background: #111615; }
+[data-theme="dark"] .intro-logo span { color: #F2F2F2; }
+[data-theme="dark"] .mobile-nav { background: #111615; }
+[data-theme="light"] #intro { background: #F0EDE8; }
+[data-theme="light"] .intro-logo span { color: #1A1A1A; }
+[data-theme="light"] .mobile-nav { background: #F0EDE8; }
+[data-theme="light"] #cursor { background: #0F4A0D; }
+[data-theme="light"] #cursor-ring { border-color: #0F4A0D; }
+[data-theme="dark"] #cursor { background: var(--green-neon); }
+
+/* ══ REDUCED MOTION ══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 900px) {
+  header { padding: 16px 24px; }
+  nav { display: none; }
+  .hamburger { display: flex; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .expertise-card { border-right: none !important; }
+  .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  .numbers-row { grid-template-columns: repeat(2, 1fr); }
+  .number-cell:nth-child(2) { border-right: none; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .timeline-item { grid-template-columns: 80px 1px 1fr; gap: 0 20px; }
+  .container { padding: 0 24px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .competencias-grid { grid-template-columns: 1fr; }
+  .comp-block { border-right: none !important; }
+  .formacao-grid { grid-template-columns: 1fr; }
+  .form-card { border-right: none !important; }
+  .project-inner { grid-template-columns: 1fr; }
+  .project-links { flex-direction: row; flex-wrap: wrap; }
+  .cv-banner { flex-direction: column; align-items: flex-start; }
+  .visual-intro { grid-template-columns: 1fr; gap: 28px; }
+  .visual-cats { grid-template-columns: repeat(2, 1fr); }
+  .visual-cats .visual-cat:nth-child(2n) { border-right: none; }
+  .visual-cats .visual-cat { border-bottom: 1px solid var(--border); }
+  .visual-cats .visual-cat:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 120px 20px 80px; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .numbers-row { grid-template-columns: 1fr 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .timeline-item { grid-template-columns: 60px 1px 1fr; gap: 0 16px; }
+  .tl-year { font-size: 0.7rem; }
+  .project-inner { padding: 28px 24px; }
+  section { padding: 72px 0; }
+  .visual-cats { grid-template-columns: 1fr; }
+  .visual-cat { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
+  .visual-cats .visual-cat:last-child { border-bottom: none !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- THEME PICKER -->
+<div id="theme-picker" role="dialog" aria-modal="true" aria-label="Escolha o tema de visualização">
+  <div class="picker-logo">V<span class="r">R</span>C</div>
+  <div class="picker-label">// escolha seu tema de visualização</div>
+  <div class="picker-cards">
+    <button class="picker-card dark-card" onclick="selectTheme('dark')" aria-label="Tema Dark — fundo escuro com neon verde">
+      <div class="picker-preview">
+        <div class="prev-dot"></div>
+        <div class="prev-bar accent"></div>
+        <div class="prev-bar" style="width:80%"></div>
+        <div class="prev-row">
+          <div class="prev-block green"></div>
+          <div class="prev-block"></div>
+          <div class="prev-block"></div>
+        </div>
+        <div class="prev-bar" style="width:45%"></div>
+      </div>
+      <div class="picker-card-label">
+        <div><div class="pcl-title">Dark</div><div class="pcl-sub">Neon verde escuro</div></div>
+        <div class="pcl-arrow">→</div>
+      </div>
+    </button>
+    <button class="picker-card light-card" onclick="selectTheme('light')" aria-label="Tema Light — fundo claro com verde musgo">
+      <div class="picker-preview">
+        <div class="prev-dot"></div>
+        <div class="prev-bar accent"></div>
+        <div class="prev-bar" style="width:80%"></div>
+        <div class="prev-row">
+          <div class="prev-block green"></div>
+          <div class="prev-block"></div>
+          <div class="prev-block"></div>
+        </div>
+        <div class="prev-bar" style="width:45%"></div>
+      </div>
+      <div class="picker-card-label">
+        <div><div class="pcl-title">Light</div><div class="pcl-sub">Musgo claro</div></div>
+        <div class="pcl-arrow">→</div>
+      </div>
+    </button>
+  </div>
+  <div class="picker-hint">// selecione para continuar — pode alterar depois</div>
+</div>
+
+<!-- THEME TOGGLE (floating) -->
+<div id="theme-toggle" role="button" aria-label="Alternar tema" tabindex="0" onclick="toggleTheme()">
+  <div class="toggle-icon" id="toggle-icon">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12.5A7 7 0 0 1 7.5 4.5a7 7 0 0 0 0 11 7 7 0 0 0 8-3z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="toggle-label">tema</div>
+</div>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-inner">
+    <div class="intro-logo"><span>V</span><span>R</span><span>C</span></div>
+    <div class="intro-bar"></div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+  <a href="#sobre" onclick="closeMobileNav()">Sobre</a>
+  <a href="#expertise" onclick="closeMobileNav()">Expertise</a>
+  <a href="#projetos" onclick="closeMobileNav()">Projetos</a>
+  <a href="#visual" onclick="closeMobileNav()">Visual</a>
+  <a href="#stack" onclick="closeMobileNav()">Stack</a>
+  <a href="#jornada" onclick="closeMobileNav()">Jornada</a>
+  <a href="#contact" onclick="closeMobileNav()">Contato</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo-wordmark">VRC<span class="dot">.</span></a>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#visual">Visual</a>
+    <a href="#stack">Stack</a>
+    <a href="#jornada">Jornada</a>
+    <a href="#contact" class="nav-cta btn btn-primary">Contato</a>
+  </nav>
+  <button class="hamburger" onclick="openMobileNav()" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Analista de Dados · Designer · Brasília, DF</div>
+    <h1>
+      <span class="line"><span>Dados que</span></span>
+      <span class="line"><span>falam com <span class="accent">design.</span></span></span>
+      <!--<span class="line"><span>Decisões que pensam.</span></span>-->
+    </h1>
+    <p class="hero-sub">
+      Victor Rabelo de Campos — analista de dados com DNA de designer. Transformo pipelines, dashboards e modelos em linguagem visual que orienta decisão.
+    </p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn btn-primary">Ver projetos →</a>
+      <a href="#contact" class="btn btn-ghost">Falar comigo</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">Python · Pandas</span>
+      <span class="hero-badge">SQL · ETL</span>
+      <span class="hero-badge">Power BI · Streamlit</span>
+      <span class="hero-badge">Machine Learning</span>
+      <!--<span class="hero-badge">Concursos TI</span>-->
+    </div>
+  </div>
+  <div><br>
+  <br> </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- ══ NUMBERS ══ -->
+<section>
+  <div class="container">
+    <div class="numbers-row reveal">
+      <div class="number-cell">
+        <span class="num-val" id="num-proj">6</span>
+        <span class="num-label">projetos de dados</span>
+      </div>
+      <div class="number-cell">
+        <span class="num-val">3</span>
+        <span class="num-label">áreas de domínio</span>
+      </div>
+      <div class="number-cell">
+        <span class="num-val">4<sup>+</sup></span>
+        <span class="num-label">anos em design</span>
+      </div>
+      <div class="number-cell">
+        <span class="num-val">01</span>
+        <span class="num-label">objetivo: excelência</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOBRE ══ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">00 — Sobre</div>
+      <h2 class="section-title">Onde o dado<br>encontra o design.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <p class="about-statement">
+          Sou <strong>Victor Rabelo</strong>, analista de dados júnior em início de carreira — com uma formação dupla que poucos têm: <span class="neon">Ciência de Dados</span> e <span class="gold">Design Gráfico</span>.
+        </p>
+        <br/>
+        <p class="about-statement">
+          Enquanto a maioria dos analistas entrega tabelas, eu entrego <strong>narrativas visuais orientadas à decisão</strong>. Dashboards que não precisam de legenda. Pipelines que produzem outputs que fazem sentido para o negócio.
+        </p>
+        <br/>
+        <p class="about-statement">
+          Atualmente cursando <strong>Ciência da Computação</strong> e com especialização concluída em <strong>Ciência de Dados.</strong>
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">Analítico</span>
+          <span class="about-tag">Visual</span>
+          <span class="about-tag">Orientado a Dados</span>
+          <span class="about-tag">Júnior CLT</span>
+          <span class="about-tag">Brasília, DF</span>
+          <span class="about-tag">Presencial / Remoto</span>
+        </div>
+      </div>
+      <div class="about-meta">
+        <div class="about-meta-item">
+          <div class="about-meta-label">// status atual</div>
+          <div class="about-meta-value">Aberto a oportunidades CLT — Analista de Dados Júnior · BI · Ciência de Dados</div>
+        </div>
+        <div class="about-meta-item">
+          <div class="about-meta-label">// localização</div>
+          <div class="about-meta-value">Brasília, DF — Presencial · Híbrido · Remoto</div>
+        </div>
+        <div class="about-meta-item">
+          <div class="about-meta-label">// contato direto</div>
+          <div class="about-meta-value"><a href="mailto:victor.vrc.pro@gmail.com">victor.vrc.pro@gmail.com</a><br/><a href="tel:+5561999260298">(61) 99926-0298</a></div>
+        </div>
+        <div class="about-meta-item">
+          <div class="about-meta-label">// formação</div>
+          <div class="about-meta-value">Bacharelado em Ciência da Computação (em andamento)<br/>Especialização em Ciência de Dados (concluída)<br/>Tecnólogo em Design Gráfico (concluído)</div>
+        </div>
+        <div class="about-meta-item">
+          <div class="about-meta-label">// idiomas</div>
+          <div class="about-meta-value">Português (nativo) · Inglês (intermediário)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERTISE ══ -->
+<section id="expertise">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">01 — Expertise</div>
+      <h2 class="section-title">Múltiplas disciplinas,<br>uma visão unificada.</h2>
+      <p class="section-desc">Atuo na convergência entre dados, tecnologia e design visual — entregando análises que são tecnicamente sólidas e visualmente comunicativas.</p>
+    </div>
+    <div class="expertise-grid reveal">
+      <div class="expertise-card">
+        <div class="exp-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="13" width="3" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8.5" y="9" width="3" height="9" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="15" y="5" width="3" height="13" rx="0.5" stroke="currentColor" stroke-width="1.2"/><polyline points="3.5,12 10,8 16.5,4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.5 1.5" opacity="0.5"/></svg>
+        </div>
+        <span class="exp-num">01</span>
+        <div class="exp-title">Análise de Dados & BI</div>
+        <p class="exp-desc">Ciclo completo de dados: ingestão, modelagem ETL com arquitetura Medallion, tratamento de qualidade, e visualização interativa em Power BI e Streamlit orientada à decisão de negócio.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">ETL / Pipeline</span>
+          <span class="exp-tag">Power BI</span>
+          <span class="exp-tag">Streamlit</span>
+          <span class="exp-tag">Medallion</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="7,5 2,10 7,15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="13,5 18,10 13,15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="8" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        </div>
+        <span class="exp-num">02</span>
+        <div class="exp-title">Ciência de Dados & ML</div>
+        <p class="exp-desc">Aplicação de machine learning em classificação com Python — algoritmos KNN, Árvore de Decisão, Random Forest e Regressão Logística, com avaliação rigorosa por métricas de performance.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Python · Pandas</span>
+          <span class="exp-tag">Classificação</span>
+          <span class="exp-tag">Métricas F1</span>
+          <span class="exp-tag">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="exp-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="10" r="2.5" fill="currentColor" opacity="0.5"/><line x1="10" y1="3" x2="10" y2="6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="10" y1="14" x2="10" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="3" y1="10" x2="6" y2="10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="14" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="exp-num">03</span>
+        <div class="exp-title">Design & Visualização</div>
+        <p class="exp-desc">Formação em design gráfico aplicada diretamente a dashboards e comunicação de dados — hierarquia visual, tipografia funcional e UI/UX orientada a métricas. O diferencial que separa análise de arte.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Data Visualization</span>
+          <span class="exp-tag">UI/UX</span>
+          <span class="exp-tag">Branding</span>
+          <span class="exp-tag">Adobe Suite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPETÊNCIAS ══ -->
+<section id="competencias">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">01.5 — Competências</div>
+      <h2 class="section-title">O que domino,<br>o que construo.</h2>
+      <p class="section-desc">Competências técnicas organizadas por domínio — da engenharia de dados à visualização, do SQL ao machine learning.</p>
+    </div>
+    <div class="competencias-grid reveal">
+      <div class="comp-block">
+        <div class="comp-block-title">// Linguagens & Consultas</div>
+        <ul class="comp-list">
+          <li>Python com Pandas para transformação e análise de dados</li>
+          <li>SQL — Oracle, MySQL, PostgreSQL (básico ao avançado)</li>
+          <li>HTML / CSS — desenvolvimento front-end </li>
+        </ul>
+      </div>
+      <div class="comp-block">
+        <div class="comp-block-title">// Engenharia de Dados</div>
+        <ul class="comp-list">
+          <li>ETL completo: extração, transformação e carga</li>
+          <li>Arquitetura Medallion (Bronze / Silver / Gold)</li>
+          <li>Data quality: duplicatas, normalização, validação de faixas</li>
+          <li>Modelagem de dados e score de qualidade por registro</li>
+        </ul>
+      </div>
+      <div class="comp-block">
+        <div class="comp-block-title">// BI & Visualização</div>
+        <ul class="comp-list">
+          <li>Power BI — dashboards analíticos orientados à decisão</li>
+          <li>Streamlit — aplicações web interativas para dados</li>
+          <li>Data visualization com foco em comunicação executiva</li>
+          <li>Design de informação e UI/UX aplicados a dashboards</li>
+        </ul>
+      </div>
+      <div class="comp-block">
+        <div class="comp-block-title">// Machine Learning</div>
+        <ul class="comp-list">
+          <li>Classificação: KNN, Árvore de Decisão, Random Forest, Regressão Logística</li>
+          <li>Split treino / validação / teste (64% · 16% · 20%)</li>
+          <li>Métricas: Accuracy, Precision, Recall, F1-Score</li>
+          <li>Seleção comparativa de modelos por performance</li>
+        </ul>
+      </div>
+      <div class="comp-block">
+        <div class="comp-block-title">// Ferramentas & Infraestrutura</div>
+        <ul class="comp-list">
+          <li>Git / GitHub — versionamento e documentação de projetos</li>
+          <li>VS Code — ambiente de desenvolvimento principal</li>
+          <li>Excel intermediário — análise e manipulação de planilhas</li>
+          <li>Manutenção de computadores e suporte técnico de hardware</li>
+        </ul>
+      </div>
+      <div class="comp-block">
+        <div class="comp-block-title">// Design Gráfico</div>
+        <ul class="comp-list">
+          <li>Adobe Illustrator, Photoshop, InDesign — suite completa</li>
+          <li>Identidade visual, branding e sistemas de marca</li>
+          <li>Ilustração vetorial e editorial</li>
+          <li>Figma — prototipação e design de interfaces</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJETOS ══ -->
+<section id="projetos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">02 — Projetos</div>
+      <h2 class="section-title">Código que<br>resolve problemas reais.</h2>
+      <p class="section-desc">Projetos práticos documentados — cada um com problema definido, stack explícita e resultado mensurável. A prova está aqui.</p>
+    </div>
+    <div class="projects-list reveal">
+
+      <!-- P1 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 01 · Engenharia de Dados</div>
+            <div class="project-title">Pipeline ETL com Arquitetura Medallion</div>
+            <p class="project-desc">
+              Pipeline ETL completo em três camadas (Bronze / Silver / Gold) para limpeza e qualidade de dados de uma livraria online. Tratamento de duplicatas, normalização de datas em formatos mistos, validação de faixas e cálculo de score de qualidade por registro. Camada Gold com dados agregados prontos para análise de negócio.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">ETL</span>
+              <span class="project-tag">Medallion Architecture</span>
+              <span class="project-tag">Data Quality</span>
+              <span class="project-tag">SQL</span>
+            </div>
+          </div>
+          <div class="project-links">
+          <!--  <a href="projetos/projeto-medallion-etl.html" class="project-link case">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M3 2.5H11L15 6.5V15.5H3V2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><polyline points="11,2.5 11,6.5 15,6.5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="6" y1="9.5" x2="12" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="6" y1="12" x2="10" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+              Case Study
+            </a>-->
+            <a href="https://github.com/VictorRabelo98/ETL-mysql" target="_blank" rel="noopener" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 02 · Dashboard Analítico · App Online</div>
+            <div class="project-title">Dashboard de Restaurantes — Análise Global</div>
+            <p class="project-desc">
+              Aplicação web de análise de dados de ~9.500 restaurantes em 15 países, com 5 páginas temáticas (visão geral, país, cidade, restaurantes, culinária), filtros dinâmicos e layout responsivo com tema claro/escuro. Demonstra domínio completo do ciclo de análise — da ingestão à entrega interativa para o usuário final.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Pandas</span>
+              <span class="project-tag">Streamlit</span>
+              <span class="project-tag">Data Visualization</span>
+              <span class="project-tag">Plotly</span>
+              <span class="project-tag">9.500+ registros</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://app-dash-vrc.streamlit.app" target="_blank" rel="noopener" class="project-link">↗ App Online</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 03 · Machine Learning</div>
+            <div class="project-title">Ensaio Comparativo de Algoritmos de Classificação</div>
+            <p class="project-desc">
+              Estudo comparativo de quatro algoritmos de classificação — KNN, Árvore de Decisão, Random Forest e Regressão Logística — com divisão rigorosa treino/validação/teste (64% · 16% · 20%) e avaliação por Accuracy, Precision, Recall e F1-Score para seleção fundamentada do melhor modelo por cenário.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Scikit-learn</span>
+              <span class="project-tag">KNN</span>
+              <span class="project-tag">Random Forest</span>
+              <span class="project-tag">Regressão Logística</span>
+              <span class="project-tag">F1-Score</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/VictorRabelo98/Python--Machine-Learning-Classification" target="_blank" rel="noopener" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 04 · Plataforma End-to-End · App Online
+              <span class="project-collab" style="margin-left:8px">Co-desenvolvido</span>
+            </div>
+            <div class="project-title">Plataforma Analítica End-to-End</div>
+            <p class="project-desc">
+              Projeto colaborativo integrando pipeline de ETL, banco de dados relacional, API REST e modelos de machine learning (regressão e classificação), com dashboard interativo em Streamlit. Foco na arquitetura e na integração das camadas de um sistema de dados completo — da coleta ao modelo.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">ETL</span>
+              <span class="project-tag">API REST</span>
+              <span class="project-tag">Machine Learning</span>
+              <span class="project-tag">Streamlit</span>
+              <span class="project-tag">Banco Relacional</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://vrc-etl-ml-datascience.streamlit.app" target="_blank" rel="noopener" class="project-link">↗ App Online</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 05 · ETL + Business Intelligence</div>
+            <div class="project-title">Pipeline ETL de Vendas — Oracle SQL → Power BI</div>
+            <p class="project-desc">
+              Processo de extração e transformação de dados de vendas em Oracle SQL, com tratamento de nulos e outliers, e carga para dashboards analíticos em Power BI. Demonstra o fluxo completo Oracle → transformação → camada de consumo para stakeholders de negócio.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Oracle SQL</span>
+              <span class="project-tag">ETL</span>
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Tratamento de Outliers</span>
+              <span class="project-tag">Nulos</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/VictorRabelo98/project-etl-chocolatesales-oracle" target="_blank" rel="noopener" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div>
+            <div class="project-number">// Projeto 06 · Análise de Dados · ETL Manual</div>
+            <div class="project-title">Análise de Dados Olímpicos — ETL Manual</div>
+            <p class="project-desc">
+              Processo de extração, limpeza e transformação de dataset histórico dos Jogos Olímpicos, desenvolvido manualmente — sem auxílio de automação — estruturando os dados para análise comparativa de desempenho por país e modalidade ao longo das décadas.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Pandas</span>
+              <span class="project-tag">ETL Manual</span>
+              <span class="project-tag">Análise Exploratória</span>
+              <span class="project-tag">Dataset Histórico</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <span class="project-link dead">GitHub — em breve</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CV DOWNLOAD BANNER -->
+    <div class="cv-banner reveal">
+      <div class="cv-banner-left">
+        <div class="cv-banner-label">// currículo completo</div>
+        <div class="cv-banner-title">Victor Rabelo de Campos — Analista de Dados Júnior</div>
+        <div class="cv-banner-sub">Currículo completo com projetos, formação e competências técnicas.</div>
+        <!--<div class="cv-banner-note">// arquivo em preparação — disponível em breve</div>-->
+      </div>
+      <a href="#" class="btn btn-gold" aria-disabled="true" title="Disponível em breve">
+        Baixar CV (PDF) ↓
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ STACK ══ -->
+<section id="stack">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">03 — Stack</div>
+      <h2 class="section-title">Ferramentas &<br>tecnologias.</h2>
+      <p class="section-desc">Arsenal técnico organizado por nível de domínio — do que uso diariamente ao que continuo expandindo.</p>
+    </div>
+    <div class="stack-grid reveal">
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><ellipse cx="10" cy="5.5" rx="7" ry="3" stroke="currentColor" stroke-width="1.2"/><path d="M3 5.5V10.5C3 12.2 6.1 13.5 10 13.5C13.9 13.5 17 12.2 17 10.5V5.5" stroke="currentColor" stroke-width="1.2"/><path d="M3 10.5V15.5C3 17.2 6.1 18.5 10 18.5C13.9 18.5 17 17.2 17 15.5V10.5" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">SQL</div><div class="stack-cat">Oracle · MySQL · PostgreSQL</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><polyline points="7,5 2,10 7,15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="13,5 18,10 13,15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="8" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg></div>
+        <div><div class="stack-name">Python</div><div class="stack-cat">Pandas · Scikit-learn</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="6" height="16" rx="0.8" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="7" width="7" height="11" rx="0.8" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">Power BI</div><div class="stack-cat">Dashboards · Analytics</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="13" width="3" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8.5" y="9" width="3" height="9" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="15" y="5" width="3" height="13" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">Streamlit</div><div class="stack-cat">Data Apps · Web</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 7V17H18V7L10 2Z" stroke="currentColor" stroke-width="1.2"/><rect x="7" y="11" width="6" height="6" stroke="currentColor" stroke-width="1.1"/></svg></div>
+        <div><div class="stack-name">ETL · Medallion</div><div class="stack-cat">Engenharia de Dados</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg></div>
+        <div><div class="stack-name">Git / GitHub</div><div class="stack-cat">Versionamento</div></div>
+        <span class="stack-level level-solid">Sólido</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="10" r="2.5" fill="currentColor" opacity="0.5"/><line x1="10" y1="3" x2="10" y2="6" stroke="currentColor" stroke-width="1.2"/><line x1="10" y1="14" x2="10" y2="17" stroke="currentColor" stroke-width="1.2"/><line x1="3" y1="10" x2="6" y2="10" stroke="currentColor" stroke-width="1.2"/><line x1="14" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">Adobe Suite</div><div class="stack-cat">Illustrator · Photoshop · InDesign</div></div>
+        <span class="stack-level level-solid">Sólido</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="6" height="6" rx="2" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="2" width="6" height="6" rx="2" stroke="currentColor" stroke-width="1.2"/><rect x="3" y="10" width="6" height="6" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="13" r="3" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">Figma</div><div class="stack-cat">UI / Prototipação</div></div>
+        <span class="stack-level level-solid">Sólido</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><polyline points="3,5 3,17 17,17" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><polyline points="5,13 8,9 11,11 15,6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="stack-name">HTML · CSS · JS</div><div class="stack-cat">Frontend progressivo</div></div>
+        <span class="stack-level level-solid">Sólido</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="11" height="14" rx="1" stroke="currentColor" stroke-width="1.2"/><line x1="4.5" y1="7.5" x2="10.5" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="4.5" y1="10" x2="10.5" y2="10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><rect x="10" y="2" width="8" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <div><div class="stack-name">Excel</div><div class="stack-cat">Análise · Fórmulas</div></div>
+        <span class="stack-level level-solid">Sólido</span>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/><line x1="7" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="7" y1="11" x2="11" y2="11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+        <div><div class="stack-name">VS Code</div><div class="stack-cat">Ambiente principal</div></div>
+        <span class="stack-level level-core">Core</span>
+      </div>
+
+      
+      <div class="stack-item">
+        <div class="stack-ico"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="11" rx="1.2" stroke="currentColor" stroke-width="1.2"/><line x1="2" y1="16" x2="18" y2="16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="10" y1="13" x2="10" y2="16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <div><div class="stack-name">Linux</div><div class="stack-cat">Terminal · Infraestrutura</div></div>
+        <span class="stack-level level-exp">Expandindo</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMUNICAÇÃO VISUAL ══ -->
+<section id="visual">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">03.5 — Comunicação Visual</div>
+      <h2 class="section-title">Design como<br>linguagem técnica.</h2>
+    </div>
+    <div class="visual-intro reveal">
+      <p class="visual-statement">
+        Design gráfico não é só estética — é <strong>comunicação estruturada de informação</strong>. A mesma lógica que organiza um dashboard orienta uma diagramação. A mesma hierarquia visual que guia o olhar num relatório funciona numa identidade de marca.
+        <br/><br/>
+        Esta seção existe porque o meu <span class="neon">diferencial em dados não é só técnico</span> — é a capacidade de transformar análises em narrativas visuais que qualquer stakeholder consegue ler. Não é um portfólio separado: é a prova de que o olho e o terminal falam a mesma língua.
+      </p>
+      <div class="visual-note">
+        <div class="visual-note-label">// contexto de uso</div>
+        <p>Relatórios analíticos estáticos, apresentações executivas, infográficos de dados, documentação visual de projetos e materiais institucionais — todos produzidos com as mesmas ferramentas e rigor técnico dos projetos de dados.</p>
+      </div>
+    </div>
+    <div class="visual-cats reveal">
+
+      <!-- 01 Diagramação -->
+      <div class="visual-cat">
+        <span class="vcat-num">01</span>
+        <div class="vcat-icon">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="2" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="9" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="2" y="13" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="vcat-title">Diagramação</div>
+        <p class="vcat-desc">Layout de publicações, relatórios técnicos, livros e materiais editoriais — com grid rigoroso, tipografia funcional e fluxo de leitura consciente. A base mais próxima do trabalho de dados.</p>
+        <div class="vcat-tools">
+          <span class="vcat-tool">InDesign</span>
+          <span class="vcat-tool">Illustrator</span>
+          <span class="vcat-tool">Grid Editorial</span>
+        </div>
+      </div>
+
+      <!-- 02 Edição de Imagem -->
+      <div class="visual-cat">
+        <span class="vcat-num">02</span>
+        <div class="vcat-icon">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="16" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="6.5" cy="7" r="1.5" stroke="currentColor" stroke-width="1.1"/><polyline points="2,13 6,9 9,12 12,9 18,15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="5" y1="18" x2="15" y2="18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="10" y1="15" x2="10" y2="18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="vcat-title">Edição de Imagem</div>
+        <p class="vcat-desc">Tratamento, retoque e composição fotográfica para materiais institucionais, identidade visual e comunicação de marca. Photoshop como ferramenta de narrativa visual.</p>
+        <div class="vcat-tools">
+          <span class="vcat-tool">Photoshop</span>
+          <span class="vcat-tool">Composição</span>
+          <span class="vcat-tool">Retoque</span>
+        </div>
+      </div>
+
+      <!-- 03 Motion -->
+      <div class="visual-cat">
+        <span class="vcat-num">03</span>
+        <div class="vcat-icon">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 17,10 5,17" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="2" y1="3" x2="2" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="vcat-title">Motion Design</div>
+        <p class="vcat-desc">Animações simples para apresentações, identidades em movimento e pequenos loops visuais — transições que guiam o olhar e comunicam processo, não apenas resultado.</p>
+        <div class="vcat-tools">
+          <span class="vcat-tool">After Effects</span>
+          <span class="vcat-tool">Animação 2D</span>
+          <span class="vcat-tool">Loops</span>
+        </div>
+      </div>
+
+      <!-- 04 Ilustração -->
+      <div class="visual-cat">
+        <span class="vcat-num">04</span>
+        <div class="vcat-icon">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 16C4 16 5 13 8 11C11 9 13 6 12 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M12 3C14 5 15 8 13 11C11 14 12 16 14 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="10" cy="16" r="1" fill="currentColor" opacity="0.6"/><path d="M7 7C7 7 8 9 10 9C12 9 13 7 13 7" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/></svg>
+        </div>
+        <div class="vcat-title">Ilustração</div>
+        <p class="vcat-desc">Série de ilustrações a lápis e digitais — traço autoral que revela o processo criativo por trás do profissional técnico. O lado mais pessoal do portfólio, presente por honestidade sobre quem eu sou.</p>
+        <div class="vcat-tools">
+          <span class="vcat-tool">Lápis</span>
+          <span class="vcat-tool">Illustrator</span>
+          <span class="vcat-tool">Photoshop</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Link Behance discreto -->
+    <div class="reveal" style="margin-top: 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+      <a href="https://www.behance.net/victorrabe663c" target="_blank" rel="noopener" class="certs-link-inline">
+        <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 4.5H7C8.9 4.5 9.8 5.5 9.8 6.9C9.8 8 9.1 8.7 8.2 9C9.4 9.3 10.2 10.2 10.2 11.5C10.2 13.1 9 14 7 14H2V4.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M11.5 10H16C15.8 8.3 14.5 7.2 12.9 7.2C11.2 7.2 10.5 8.5 10.5 10C10.5 11.8 11.6 12.8 13.1 12.8C14.1 12.8 15 12.3 15.5 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="11.5" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Ver portfólio visual no Behance →
+      </a>
+      <span style="font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-4);">// em reestruturação</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ JORNADA ══ -->
+<section id="jornada">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">04 — Jornada</div>
+      <h2 class="section-title">Cada etapa<br>forjou o próximo nível.</h2>
+      <p class="section-desc">Uma trajetória não linear — do lápis ao pipeline, da prancheta ao terminal. Em constante expansão.</p>
+    </div>
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="tl-year">Atual</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Ciência da Computação</div>
+          <div class="tl-org">// Faculdade Descomplica · conclusão prevista 2026</div>
+          <p class="tl-desc">Aprofundamento em fundamentos de computação, redes, segurança, algoritmos e desenvolvimento de sistemas — com repositório de estudos ativo e documentado.</p>
+        </div>
+      </div>
+
+     
+
+      <div class="timeline-item">
+        <div class="tl-year">2023-2024</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Especialização em Ciência de Dados — Concluída</div>
+          <div class="tl-org">// Data Science Academy · Comunidade DS</div>
+          <p class="tl-desc">Formação intensiva em análise e ciência de dados: Python, SQL, visualização, machine learning e engenharia de dados. Base técnica que sustenta todos os projetos do portfólio.</p>
+          <a href="certificados.html" class="certs-link-inline" title="Certificados complementares de cursos online">
+            <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="10" height="13" rx="1" stroke="currentColor" stroke-width="1.2"/><line x1="4.5" y1="7" x2="9.5" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="4.5" y1="9.5" x2="9.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="4.5" y1="12" x2="7.5" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><path d="M11 10L13.5 8L16 10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/><line x1="13.5" y1="8" x2="13.5" y2="15" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            Ver certificados complementares →
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">2021-2022</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Tecnólogo em Design Gráfico — Concluído</div>
+          <div class="tl-org">// IESB · Centro Universitário · Brasília</div>
+          <p class="tl-desc">Formação completa em design gráfico e ilustração: identidade visual, tipografia, composição, design editorial e ferramentas de produção. A base que diferencia a forma como comunico dados — visualmente e analiticamente.</p>
+        </div>
+      </div>
+
+       <div class="timeline-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Estágio em Comunicação Visual e Suporte de TI</div>
+          <div class="tl-org">// Rede Empresa · Brasília, DF</div>
+          <p class="tl-desc">Produção de materiais de comunicação visual e padronização de templates para a equipe — reduzindo retrabalho e estabelecendo consistência visual nos materiais internos da empresa.</p>
+        </div>
+      </div>
+
+
+
+
+      <div class="timeline-item">
+        <div class="tl-year">2019</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Início da Jornada — Design & Tecnologia</div>
+          <div class="tl-org">// Fundamentos & Exploração</div>
+          <p class="tl-desc">Primeiros anos explorando o universo do design visual — lápis, vetores, tipografia e cor. E os primeiros contatos com programação e lógica de sistemas que abriram o caminho para a virada para dados e TI.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATO ══ -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-label">06 — Contato</div>
+      <h2 class="section-title">Vamos construir<br>algo juntos.</h2>
+      <p class="section-desc">Aberto a oportunidades CLT, colaborações e projetos que valham o esforço. Prefiro conversas diretas e objetivas.</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <div class="contact-info">
+        <h3>Canais diretos</h3>
+        <p>Escolha o canal que faz mais sentido. Respondo rápido.</p>
+        <div class="contact-links">
+
+          <a href="mailto:victor.vrc.pro@gmail.com" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="3.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.2"/><polyline points="1.5,4 9,10 16.5,4" stroke="currentColor" stroke-width="1.2"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">E-mail</div>
+              <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-3); margin-top:2px;">victor.vrc.pro@gmail.com</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://linkedin.com/in/victor-rabelo-98dc" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="5.5" cy="6" r="1.2" fill="currentColor"/><line x1="5.5" y1="8.5" x2="5.5" y2="14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M8.5 14V11C8.5 9.6 9.6 8.5 11 8.5C12.4 8.5 13.5 9.6 13.5 11V14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">LinkedIn</div>
+              <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-3); margin-top:2px;">victor-rabelo-98dc</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://github.com/VictorRabelo98" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">GitHub</div>
+              <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-3); margin-top:2px;">VictorRabelo98</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://www.behance.net/victorrabe663c" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.5H7C8.9 4.5 9.8 5.5 9.8 6.9C9.8 8 9.1 8.7 8.2 9C9.4 9.3 10.2 10.2 10.2 11.5C10.2 13.1 9 14 7 14H2V4.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="4" y1="8.5" x2="7" y2="8.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.6"/><path d="M11.5 10H16C15.8 8.3 14.5 7.2 12.9 7.2C11.2 7.2 10.5 8.5 10.5 10C10.5 11.8 11.6 12.8 13.1 12.8C14.1 12.8 15 12.3 15.5 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="11.5" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">Behance</div>
+              <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-3); margin-top:2px;">Portfólio de design</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Nome</label>
+            <input type="text" id="contact-name" name="name" placeholder="Seu nome completo" autocomplete="name"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">E-mail</label>
+            <input type="email" id="contact-email" name="email" placeholder="seu@email.com" autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-msg">Mensagem</label>
+            <textarea id="contact-msg" name="message" placeholder="Sobre o que quer conversar?"></textarea>
+          </div>
+          <button class="form-submit" type="button" onclick="handleContactForm()">Enviar mensagem →</button>
+          <div id="form-feedback" style="font-family:var(--font-mono); font-size:0.72rem; color:var(--green-neon); margin-top:8px; display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 VRC — Victor Rabelo de Campos · Brasília, DF</div>
+      <div class="footer-links">
+        <a href="https://www.behance.net/victorrabe663c" target="_blank" rel="noopener">Behance</a>
+        <a href="https://linkedin.com/in/victor-rabelo-98dc" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/VictorRabelo98" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/* ── THEME SYSTEM ── */
+const MOON_SVG = `<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12.5A7 7 0 0 1 7.5 4.5a7 7 0 0 0 0 11 7 7 0 0 0 8-3z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const SUN_SVG  = `<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.3"/><line x1="10" y1="2" x2="10" y2="4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="10" y1="16" x2="10" y2="18" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="2" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="16" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="14.4" y1="14.4" x2="15.8" y2="15.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="15.8" y1="4.2" x2="14.4" y2="5.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><line x1="5.6" y1="14.4" x2="4.2" y2="15.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>`;
+
+function applyTheme(theme, save) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.getElementById('toggle-icon');
+  if (icon) icon.innerHTML = theme === 'dark' ? MOON_SVG : SUN_SVG;
+  if (save) localStorage.setItem('vrc-theme', theme);
+}
+
+function selectTheme(theme) {
+  applyTheme(theme, true);
+  const picker = document.getElementById('theme-picker');
+  picker.classList.add('hidden');
+  setTimeout(() => {
+    document.getElementById('theme-toggle').classList.add('visible');
+    setTimeout(() => { document.getElementById('intro').classList.add('hidden'); }, 1700);
+  }, 300);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(current === 'dark' ? 'light' : 'dark', true);
+}
+
+(function() {
+  const saved = localStorage.getItem('vrc-theme');
+  if (saved) {
+    applyTheme(saved, false);
+    document.getElementById('theme-picker').classList.add('hidden');
+    document.getElementById('theme-toggle').classList.add('visible');
+    setTimeout(() => { document.getElementById('intro').classList.add('hidden'); }, 1700);
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
+document.getElementById('theme-toggle').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTheme(); }
+});
+
+/* ── CURSOR ── */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+
+(function animRing() {
+  rx += (mx - rx) * 0.14;
+  ry += (my - ry) * 0.14;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+document.querySelectorAll('a, button, input, textarea, .expertise-card, .stack-item, .project-card, .contact-link, .picker-card, .visual-cat').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+/* ── MOBILE NAV ── */
+function openMobileNav()  { document.getElementById('mobileNav').classList.add('open'); }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+/* ── REVEAL ON SCROLL ── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(r => io.observe(r));
+
+/* ── CONTACT FORM HANDLER ── */
+function handleContactForm() {
+  const name  = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const msg   = document.getElementById('contact-msg').value.trim();
+  const fb    = document.getElementById('form-feedback');
+
+  if (!name || !email || !msg) {
+    fb.style.color = '#B08A33';
+    fb.textContent = '// preencha todos os campos antes de enviar.';
+    fb.style.display = 'block';
+    return;
+  }
+
+  /* Fallback: abre cliente de e-mail com dados preenchidos */
+  const subject = encodeURIComponent('Contato via portfólio VRC — ' + name);
+  const body    = encodeURIComponent('Nome: ' + name + '\nE-mail: ' + email + '\n\nMensagem:\n' + msg);
+  window.location.href = 'mailto:rabelodecamposvictor@gmail.com?subject=' + subject + '&body=' + body;
+
+  fb.style.color = '#5CB448';
+  fb.textContent = '// abrindo cliente de e-mail... se não abrir, use o link de e-mail acima.';
+  fb.style.display = 'block';
+}
+
+/* ── ACTIVE NAV HIGHLIGHT ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.style.color = '');
+      const link = document.querySelector('nav a[href="#' + e.target.id + '"]');
+      if (link && !link.classList.contains('nav-cta')) link.style.color = 'var(--green-neon)';
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => navObserver.observe(s));
+
+</script>
+</body>
+</html>
