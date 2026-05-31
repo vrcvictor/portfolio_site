@@ -1396,7 +1396,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
             <div class="project-number">// Projeto 01 · Engenharia de Dados</div>
             <div class="project-title">Pipeline ETL com Arquitetura Medallion</div>
             <p class="project-desc">
-              Pipeline ETL completo em três camadas (Bronze / Silver / Gold) para limpeza e qualidade de dados de uma livraria online. Tratamento de duplicatas, normalização de datas em formatos mistos, validação de faixas e cálculo de score de qualidade por registro. Camada Gold com dados agregados prontos para análise de negócio.
+              Uma livraria online acumulava dados caóticos de múltiplas fontes — duplicatas, datas em formatos mistos, preços inválidos — comprometendo decisões de negócio. Pipeline ETL em arquitetura Medallion (Bronze/Silver/Gold) com score de qualidade por registro e camada analítica pronta para consumo. Resultado: dado rastreável, confiável e priorizável.
             </p>
             <div class="project-stack">
               <span class="project-tag">MySQL</span>
@@ -1413,7 +1413,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
             </a>-->
             <a href="https://github.com/VictorRabelo98/ETL-mysql" target="_blank" rel="noopener" class="project-link">
               <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
-              GitHub
+              Ver case completo
             </a>
           </div>
         </div>
@@ -1426,7 +1426,13 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
             <div class="project-number">// Projeto 02 · Dashboard Analítico · App Online</div>
             <div class="project-title">Dashboard de Restaurantes — Análise Global</div>
             <p class="project-desc">
-              Aplicação web de análise de dados de ~9.500 restaurantes em 15 países, com 5 páginas temáticas (visão geral, país, cidade, restaurantes, culinária), filtros dinâmicos e layout responsivo com tema claro/escuro. Demonstra domínio completo do ciclo de análise — da ingestão à entrega interativa para o usuário final.
+              Analisar 9.500+ restaurantes em 15 países por planilha é inviável — volume e heterogeneidade exigem interface analítica, não tabela. Aplicação web em Streamlit com Pandas e Plotly, 
+               organizada em 5 páginas temáticas para drill-down hierárquico (visão geral → país → cidade → restaurante → culinária), 
+               com gerenciamento de estado que mantém os filtros sincronizados entre páginas sem reprocessar a visualização.
+               Camada visual construída com sistema unificado de gráficos, layout responsivo mobile/desktop, alternância dark/light orientada à preferência do usuário e
+               hierarquia tipográfica que dirige o olhar para a métrica relevante. Resultado: stakeholder não-técnico explora 9.500 registros sem precisar de Python, SQL ou de
+               um analista intermediando cada pergunta.
+               Design aplicado como arquitetura
             </p>
             <div class="project-stack">
               <span class="project-tag">Python</span>
@@ -1437,10 +1443,25 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
               <span class="project-tag">9.500+ registros</span>
             </div>
           </div>
+         
           <div class="project-links">
+          <!--  <a href="projetos/projeto-medallion-etl.html" class="project-link case">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M3 2.5H11L15 6.5V15.5H3V2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><polyline points="11,2.5 11,6.5 15,6.5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="6" y1="9.5" x2="12" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="6" y1="12" x2="10" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+              Case Study
+            </a>-->
+              <div class="project-links">
             <a href="https://python-dashboard.streamlit.app/" target="_blank" rel="noopener" class="project-link">↗ App Online</a>
-          </div>
+          
+         
+            <a href="https://github.com/VictorRabelo98/Python-DashBoard-Streamlit" target="_blank" rel="noopener" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              GitHub
+            </a>
+          </div>   
+           
         </div>
+
+         
       </div>
 
       <!-- P3 -->
@@ -1450,7 +1471,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
             <div class="project-number">// Projeto 03 · Machine Learning</div>
             <div class="project-title">Ensaio Comparativo de Algoritmos de Classificação</div>
             <p class="project-desc">
-              Estudo comparativo de quatro algoritmos de classificação — KNN, Árvore de Decisão, Random Forest e Regressão Logística — com divisão rigorosa treino/validação/teste (64% · 16% · 20%) e avaliação por Accuracy, Precision, Recall e F1-Score para seleção fundamentada do melhor modelo por cenário.
+               Escolher modelo de classificação por intuição é apostar. Ensaio comparativo entre KNN, Árvore de Decisão, Random Forest e Regressão Logística, com split rigoroso 64/16/20 e avaliação por Accuracy, Precision, Recall e F1-Score. Seleção fundamentada por cenário de aplicação.
             </p>
             <div class="project-stack">
               <span class="project-tag">Python</span>
@@ -1479,7 +1500,12 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
             </div>
             <div class="project-title">Plataforma Analítica End-to-End</div>
             <p class="project-desc">
-              Projeto colaborativo integrando pipeline de ETL, banco de dados relacional, API REST e modelos de machine learning (regressão e classificação), com dashboard interativo em Streamlit. Foco na arquitetura e na integração das camadas de um sistema de dados completo — da coleta ao modelo.
+             Vendedores de carros esportivos com ticket médio de R$ 874k identificavam "na intuição" quem ia fechar a compra —
+               conhecimento que não escala, não se transfere e não se mede. Pipeline completo de inteligência de vendas sobre base histórica de 24 meses, 
+               com análise exploratória, modelos preditivos de valor de venda, conversão e segmentação de clientes, integrados a uma aplicação web publicada online. 
+               Camada visual com sistema unificado de gráficos, layout responsivo, dark/light e tipografia funcional — simulador interativo que recebe parâmetros e devolve predição em tempo real,
+               sem alterar a base. Resultado: vendedor estima valor esperado, consulta probabilidade de fechamento e identifica o perfil do cliente antes da abordagem — intuição traduzida em consulta de dado,
+               melhorando análise e personalizando atendimento. Arquitetura completa, não componentes isolados.
             </p>
             <div class="project-stack">
               <span class="project-tag">Python</span>
@@ -1492,6 +1518,10 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
           </div>
           <div class="project-links">
             <a href="https://vrc-etl-ml-datascience.streamlit.app" target="_blank" rel="noopener" class="project-link">↗ App Online</a>
+               <a href="https://github.com/VictorRabelo98/ProjectVRC_ETL_ML_DataScience" target="_blank" rel="noopener" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -1544,8 +1574,8 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
               <svg width="12" height="12" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.9 1.5 1.5 4.9 1.5 9C1.5 12.3 3.5 15.1 6.4 16.1C6.8 16.2 6.9 16 6.9 15.8V14.3C4.9 14.8 4.4 13.5 4.4 13.5C4.1 12.7 3.5 12.4 3.5 12.4C2.7 11.9 3.6 11.9 3.6 11.9C4.4 12 4.8 12.8 4.8 12.8C5.5 14 6.6 13.7 7 13.5C7.1 12.9 7.3 12.5 7.6 12.3C5.8 12.1 3.9 11.4 3.9 8.5C3.9 7.6 4.2 6.9 4.7 6.3C4.6 6.1 4.3 5.3 4.8 4.1C4.8 4.1 5.5 3.9 6.9 4.9C7.5 4.7 8.2 4.6 9 4.6C9.8 4.6 10.5 4.7 11.1 4.9C12.5 3.9 13.2 4.1 13.2 4.1C13.7 5.3 13.4 6.1 13.3 6.3C13.8 6.9 14.1 7.6 14.1 8.5C14.1 11.4 12.2 12.1 10.4 12.3C10.7 12.6 11 13.2 11 14V15.8C11 16 11.1 16.2 11.5 16.1C14.5 15.1 16.5 12.3 16.5 9C16.5 4.9 13.1 1.5 9 1.5Z" stroke="currentColor" stroke-width="1.1"/></svg>
               GitHub
             </a>
-            <a href="1.pdf" target="_blank" rel="noopener" class="project-link">
-              PDF
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiN2JjNTdiZjktMmVlMi00ZGM1LTliYzUtN2QxY2QzNTEzNDBhIiwidCI6ImJmNzZmM2I4LTdjMjctNDY0NC1hOWI4LTg4ZmU5NTdkYzNjOCJ9" target="_blank" rel="noopener" class="project-link">
+              Projeto interativo
             </a>
           </div>
         </div>
@@ -1736,18 +1766,18 @@ footer { border-top: 1px solid var(--border); padding: 40px 0; }
         </div>
       </div>
 
-    </div>
+       <!-- </div>
 
-    <!-- Link Behance discreto -->
+     Link Behance discreto 
     <div class="reveal" style="margin-top: 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
       <a href="https://www.behance.net/victorrabe663c" target="_blank" rel="noopener" class="certs-link-inline">
         <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 4.5H7C8.9 4.5 9.8 5.5 9.8 6.9C9.8 8 9.1 8.7 8.2 9C9.4 9.3 10.2 10.2 10.2 11.5C10.2 13.1 9 14 7 14H2V4.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M11.5 10H16C15.8 8.3 14.5 7.2 12.9 7.2C11.2 7.2 10.5 8.5 10.5 10C10.5 11.8 11.6 12.8 13.1 12.8C14.1 12.8 15 12.3 15.5 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="11.5" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         Ver portfólio visual no Behance →
       </a>
       <span style="font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-4);">// em reestruturação</span>
-    </div>
+    </div>  
 
-  </div>
+  </div>   -->
 </section>
 
 <!-- ══ JORNADA ══ -->
